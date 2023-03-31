@@ -34,13 +34,53 @@ function writePassword() {
     }
   }
 
+  var wantsChar = characterParameters();
+  console.log(wantsChar);
+
+  function characterParameters(){
+    var wantsArr = [];
+    console.log(wantsArr);
+
+    do {
+    alert("Please choose one or more of the following characters to include in your password.");
+
+    var wantsLowercase = confirm("Would you like to include lowercase characters?");
+    console.log(wantsLowercase);
+    var wantsUppercase = confirm("Would you like to include uppercase characters?");
+    console.log(wantsUppercase);
+    var wantsNumeric = confirm("Would you like to include numeric characters?");
+    console.log(wantsNumeric);
+    var wantsSpecial = confirm("Would you like to include special characters?");
+    console.log(wantsSpecial);
+
+    if (wantsLowercase){
+        wantsArr.push("abcdefghijklmnopqrstuvwxyz");
+        console.log(wantsArr);
+    }
+    if (wantsUppercase){
+      wantsArr.push("ABCDEFGHIJKLMNOPQRSTUVWXZY");
+      console.log(wantsArr);
+    }
+    if (wantsNumeric){
+      wantsArr.push("0123456789");
+      console.log(wantsArr);
+    }
+    if (wantsSpecial){
+      wantsArr.push("!@#$%^&*");
+      console.log(wantsArr);
+    }
+    } while (wantsArr == []);
+
+    return wantsArr;
+
+  }
+
   //Generates a password after determining users desired password length
   var password = generatePassword();
 
   function generatePassword (){
-    var characters = ("abcdefghijklmnopqrstuvwxyz" + "ABCDEFGHIJKLMNOPQRSTUVWXZY" + "0123456789" + "!@#$%^&*");
+    var characters = wantsChar[0] + wantsChar[1] + wantsChar[2] + wantsChar[3];
     console.log(characters);
-    console.log("abcdefghijklmnopqrstuvwxyz" + "ABCDEFGHIJKLMNOPQRSTUVWXZY" + "0123456789" + "!@#$%^&*");
     var result = " ";
     console.log(result);
     var charactersLength = passwordLength;
@@ -55,8 +95,6 @@ function writePassword() {
   }
      
   /*
-  function generatePassword (passwordLength){
-
       if (characterParameters == [true, true, true, true]){
         var characters = (lowercase + uppercase + numeric + speacial);
         var result = " ";
