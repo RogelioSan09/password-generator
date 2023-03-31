@@ -28,14 +28,19 @@ function writePassword() {
       return userInput;
     } 
     //Alerts user of password length requirements not met
+    else if (userInput === null){
+        return;
+    }
     else {
       alert("Does not meet length requirements.");
-      return;
+      return lengthRequest;
     }
+
   }
 
   var wantsChar = characterParameters();
   console.log(wantsChar);
+  
 
   function characterParameters(){
     var wantsArr = [];
@@ -74,30 +79,29 @@ function writePassword() {
     return wantsArr;
 
   }
+  
 
   //Generates a password after determining users desired password length
   var password = generatePassword();
 
   function generatePassword (){
-    //var characters = " ";
-    //console.log(characters);
+    var characters = "";
     for ( i = 0; i < wantsChar.length; i++ ) {
-      var characters = " ";
       characters += wantsChar[i];
       console.log(characters);
     }
     
-    var result = " ";
-    console.log(result);
+    var password = "";
+    console.log(password);
     var charactersLength = passwordLength;
     console.log(charactersLength);
 
     for ( let j = 0; j < passwordLength; j++ ) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        console.log(result);
+      password += characters.charAt(Math.floor(Math.random() * charactersLength));
+        console.log(password);
     }
     // return a random password of the length user requested
-    return result;
+    return password;
   }
 
   passwordText.value = password;
