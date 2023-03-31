@@ -79,62 +79,27 @@ function writePassword() {
   var password = generatePassword();
 
   function generatePassword (){
-    var characters = wantsChar[0] + wantsChar[1] + wantsChar[2] + wantsChar[3];
-    console.log(characters);
+    //var characters = " ";
+    //console.log(characters);
+    for ( i = 0; i < wantsChar.length; i++ ) {
+      var characters = " ";
+      characters += wantsChar[i];
+      console.log(characters);
+    }
+    
     var result = " ";
     console.log(result);
     var charactersLength = passwordLength;
     console.log(charactersLength);
 
-    for ( let i = 0; i < passwordLength; i++ ) {
+    for ( let j = 0; j < passwordLength; j++ ) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
         console.log(result);
     }
     // return a random password of the length user requested
     return result;
   }
-     
-  /*
-      if (characterParameters == [true, true, true, true]){
-        var characters = (lowercase + uppercase + numeric + speacial);
-        var result = " ";
-        var charactersLength = characters.length;
-        for ( let i = 0; i < length; i++ ) {
-            result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        }
-    
-        return result;
-      }
-      if (wantsLowercase && wantsUppercase && wantsNumeric){
-        function generatePassword() {
-          var length = passwordLength
-          var characters = (lowercase + uppercase + numeric);
-          var result = " ";
-          var charactersLength = characters.length;
-          for ( let i = 0; i < length; i++ ) {
-              result += characters.charAt(Math.floor(Math.random() * charactersLength));
-          }
-      
-          return result;
-        }
-      }
-      if (wantsLowercase && wantsUppercase){
-        function generatePassword (){
-          return Math.floor(Math.random() * 10);
-        }
-      }
-      if (wantsLowercase || wantsUppercase || wantsNumeric || wantsSpecial){
-        function generatePassword (){
-          return Math.floor(Math.random() * 10);
-        }
-      }
-      else {
-        alert("You must choose at least one character type.")
-      }
-    
-    
-  }
-  */
+
   passwordText.value = password;
 }
 
